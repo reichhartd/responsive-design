@@ -34,14 +34,14 @@ export default function Digitalmediagrid() {
 
     return (
         <main className="min-h-full bg-orange-300">
-            <div className="grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 px-32 py-16">
+            <div className="grid gap-16 px-32 py-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {cards.map((img) => (
-                        <img
-                            alt={img.alt}
-                            src={img.src}
-                            key={img.alt}
-                            className="w-64 rounded-2xl m-auto grayscale transition hover:grayscale-0 focus:grayscale-0"
-                        />
+                    <img
+                        alt={img.alt}
+                        src={img.src}
+                        key={img.alt}
+                        className="m-auto w-64 rounded-2xl grayscale transition hover:grayscale-0 focus:grayscale-0"
+                    />
                 ))}
             </div>
         </main>
