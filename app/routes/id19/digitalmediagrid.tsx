@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import coffee1 from '../../assets/coffee/coffee-1.jpeg';
 import coffee2 from '../../assets/coffee/coffee-2.jpeg';
 import coffee3 from '../../assets/coffee/coffee-3.jpeg';
@@ -31,18 +32,23 @@ export default function Digitalmediagrid() {
         ],
         []
     );
+    const renderedCards = useMemo(
+        () =>
+            cards.map((img) => (
+                <img
+                    alt={img.alt}
+                    src={img.src}
+                    key={img.alt}
+                    className="m-auto w-64 rounded-2xl grayscale transition hover:grayscale-0 focus:grayscale-0"
+                />
+            )),
+        [cards]
+    );
 
     return (
         <main className="min-h-full bg-orange-300">
             <div className="grid gap-16 px-32 py-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {cards.map((img) => (
-                    <img
-                        alt={img.alt}
-                        src={img.src}
-                        key={img.alt}
-                        className="m-auto w-64 rounded-2xl grayscale transition hover:grayscale-0 focus:grayscale-0"
-                    />
-                ))}
+                {renderedCards}
             </div>
         </main>
     );

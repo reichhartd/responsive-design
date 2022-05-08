@@ -1,6 +1,6 @@
 # ID_19 Responsive Design
 
--   [ ] Understand and apply the use of grids for digital media and different screen sizes.
+-   [x] Understand and apply the use of grids for digital media and different screen sizes.
 -   [ ] Understand RWD layout and design patterns.
 -   [ ] Understand the handling and creation of breakpoints.
 -   [ ] Understand harmonic ratios and scales as well as spacing methods.
