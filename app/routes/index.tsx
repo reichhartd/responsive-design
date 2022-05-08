@@ -18,9 +18,9 @@ export default function Index() {
     return (
         <main className="flex min-h-screen justify-center bg-orange-100 py-16">
             <div style={maxWidthStyle}>
-                <div className="pb-16 pl-8 xl:pl-16">
+                <div className="flex justify-between px-8 pb-16 xl:px-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
-                    <Dropdown active={activeSort} onClick={setActiveSort} items={items} />
+                    <Dropdown active={activeSort} onClick={setActiveSort} items={items} c />
                 </div>
                 <Grid />
             </div>

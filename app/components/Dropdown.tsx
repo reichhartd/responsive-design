@@ -2,11 +2,13 @@ import React, { useMemo } from 'react';
 
 interface IDropdown<TEnum> {
     items: Array<string>;
-    active: TEnum;
+    active: string;
     onClick: (active: TEnum) => void;
 }
 
 export const Dropdown = <TEnum extends unknown>({ items, active, onClick }: IDropdown<TEnum>) => {
+    const rendererActive = useMemo(() => active.charAt(0).toUpperCase() + active.slice(1).toLowerCase(), [active]);
+
     const rendererItems = useMemo(
         () =>
             items.map((item) => (
@@ -27,10 +29,10 @@ export const Dropdown = <TEnum extends unknown>({ items, active, onClick }: IDro
             <button
                 id="dropdownDefault"
                 data-dropdown-toggle="dropdown"
-                className="inline-flex items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="inline-flex w-48 items-center justify-between rounded-lg bg-orange-700 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
                 type="button"
             >
-                Dropdown button{' '}
+                {rendererActive}{' '}
                 <svg
                     className="ml-2 h-4 w-4"
                     fill="none"
