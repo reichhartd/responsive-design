@@ -18,7 +18,7 @@ export const Card: React.FC<ICard> = ({ name, description, address, stars, image
     return (
         <figure className={`${flex} bg-orange-300 p-4 xl:rounded-3xl xl:p-0 ${hover}`}>
             <img
-                className="aspect-squares w-1/4 rounded-full object-cover xl:w-2/4 xl:rounded-none xl:rounded-l-3xl"
+                className="aspect-square w-1/4 rounded-full object-cover xl:w-2/4 xl:rounded-none xl:rounded-l-3xl"
                 src={imageSrc}
                 alt={imageAlt}
             />
