@@ -1,5 +1,8 @@
 import { useMemo } from 'react';
 
+import type { ICard } from '~/components/Card';
+import { Card } from '~/components/Card';
+
 import coffee1 from '../../assets/coffee/coffee-1.jpeg';
 import coffee2 from '../../assets/coffee/coffee-2.jpeg';
 import coffee3 from '../../assets/coffee/coffee-3.jpeg';
@@ -11,12 +14,7 @@ import coffee8 from '../../assets/coffee/coffee-8.jpeg';
 import coffee9 from '../../assets/coffee/coffee-9.jpeg';
 import coffee10 from '../../assets/coffee/coffee-10.jpeg';
 
-interface ICard {
-    src: string;
-    alt: string;
-}
-
-export default function Digitalmediagrid() {
+export default function Grid() {
     const cards = useMemo<Array<ICard>>(
         () => [
             { src: coffee1, alt: 'coffee1' },
@@ -32,18 +30,7 @@ export default function Digitalmediagrid() {
         ],
         []
     );
-    const renderedCards = useMemo(
-        () =>
-            cards.map((img) => (
-                <img
-                    alt={img.alt}
-                    src={img.src}
-                    key={img.alt}
-                    className="m-auto w-64 rounded-2xl grayscale transition hover:grayscale-0 focus:grayscale-0"
-                />
-            )),
-        [cards]
-    );
+    const renderedCards = useMemo(() => cards.map(({ src, alt }) => <Card src={src} alt={alt} key={alt} />), [cards]);
 
     return (
         <main className="min-h-full bg-orange-300">
