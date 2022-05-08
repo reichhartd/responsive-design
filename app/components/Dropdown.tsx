@@ -10,17 +10,18 @@ interface IDropdown {
 export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
     const capitalizeFirstLetter = useCallback((str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(), []);
 
-    const rendererActive = useMemo(() => capitalizeFirstLetter(active), [active, capitalizeFirstLetter]);
+    const rendererActive = useMemo(() => active.toLowerCase(), [active]);
     const rendererItems = useMemo(
         () =>
             items.map((item) => (
-                <div className="px-1 py-1 ">
+                <div className="px-1 py-1">
                     <Menu.Item>
                         {({ active }) => (
                             <button
                                 className={`${
-                                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                                    active ? 'bg-orange-500 text-white' : 'text-gray-900'
                                 } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                onClick={() => onClick(item)}
                             >
                                 {capitalizeFirstLetter(item)}
                             </button>
@@ -28,15 +29,14 @@ export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
                     </Menu.Item>
                 </div>
             )),
-        [capitalizeFirstLetter, items]
+        [capitalizeFirstLetter, items, onClick]
     );
 
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
                 <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                    {rendererActive}
-
+                    Sorted by {rendererActive}
                     <svg
                         className="ml-2 h-4 w-4"
                         fill="none"
@@ -57,7 +57,7 @@ export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     {rendererItems}
                 </Menu.Items>
             </Transition>

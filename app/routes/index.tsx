@@ -20,7 +20,9 @@ export default function Index() {
             <div style={maxWidthStyle}>
                 <div className="flex justify-between px-8 pb-16 xl:px-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
-                    <Dropdown active={activeSort} onClick={setActiveSort as (active: string) => void} items={items} />
+                    <div>
+                        <Dropdown active={activeSort} onClick={setActiveSort as any} items={items} />
+                    </div>
                 </div>
                 <Grid sort={activeSort} />
             </div>
