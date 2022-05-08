@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import type { ICard } from '~/components/Card';
 import { Card } from '~/components/Card';
@@ -14,7 +14,7 @@ import coffee8 from '../assets/coffee/coffee-8.jpeg';
 import coffee9 from '../assets/coffee/coffee-9.jpeg';
 import coffee10 from '../assets/coffee/coffee-10.jpeg';
 
-export default function Grid() {
+export const Grid: React.FC = () => {
     const cards = useMemo<Array<ICard>>(
         () => [
             { src: coffee1, alt: 'coffee1' },
@@ -33,10 +33,8 @@ export default function Grid() {
     const renderedCards = useMemo(() => cards.map(({ src, alt }) => <Card src={src} alt={alt} key={alt} />), [cards]);
 
     return (
-        <main className="min-h-screen bg-orange-300">
-            <div className="grid gap-16 px-32 py-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                {renderedCards}
-            </div>
-        </main>
+        <div className="grid gap-16 px-32 py-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            {renderedCards}
+        </div>
     );
-}
+};

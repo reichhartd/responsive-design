@@ -1,9 +1,9 @@
-import { Link } from '@remix-run/react';
+import { Grid } from '~/components/Grid';
 
 export default function Index() {
     return (
-        <main className="flex min-h-screen items-center justify-center">
-            <Link to="/grid">Click me</Link>
+        <main className="min-h-screen bg-orange-100">
+            <Grid />
         </main>
     );
 }
