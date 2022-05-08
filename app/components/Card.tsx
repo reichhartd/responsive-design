@@ -1,13 +1,29 @@
 import React from 'react';
 
 export interface ICard {
-    src: string;
-    alt: string;
+    name: string;
+    description: string;
+    address: string;
+    stars: number;
+    imageSrc: string;
+    imageAlt: string;
 }
 
-export const Card: React.FC<ICard> = ({ src, alt }) => (
-    <div className="h-64 w-64 rounded-2xl bg-white drop-shadow-2xl grayscale transition hover:grayscale-0 focus:grayscale-0">
-        <img alt={alt} src={src} className="m-auto h-32 w-64 rounded-t-2xl" />
-        <p>{alt}</p>
-    </div>
+export const Card: React.FC<ICard> = ({ name, description, address, stars, imageSrc, imageAlt }) => (
+    <figure className="rounded-xl bg-slate-100 p-8 dark:bg-slate-800 md:flex md:p-0">
+        <img
+            className="mx-auto h-24 w-24 rounded-full md:h-auto md:w-48 md:rounded-none"
+            src={imageSrc}
+            alt={imageAlt}
+        />
+        <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
+            <blockquote>
+                <p className="text-lg font-medium">{description}</p>
+            </blockquote>
+            <figcaption className="font-medium">
+                <div className="text-sky-500 dark:text-sky-400">{name}</div>
+                <div className="text-slate-700 dark:text-slate-500">{address}</div>
+            </figcaption>
+        </div>
+    </figure>
 );
