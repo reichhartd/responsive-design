@@ -4,11 +4,7 @@ export interface ICard {
 }
 
 export const Card: React.FC<ICard> = ({ src, alt }) => (
-    <div>
-        <img
-            alt={alt}
-            src={src}
-            className="m-auto w-64 rounded-2xl grayscale transition hover:grayscale-0 focus:grayscale-0"
-        />
+    <div className="h-64 w-64 rounded-2xl bg-white drop-shadow-2xl grayscale transition hover:grayscale-0 focus:grayscale-0">
+        <img alt={alt} src={src} className="m-auto h-32 w-64 rounded-t-2xl" />
     </div>
 );
