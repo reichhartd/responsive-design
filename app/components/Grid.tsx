@@ -2,8 +2,13 @@ import React, { useMemo } from 'react';
 
 import { cafeData } from '~/assets/data/cafeData';
 import { Card } from '~/components/Card';
+import type { SortEnum } from '~/routes';
 
-export const Grid: React.FC = () => {
+interface IGrid {
+    sort: SortEnum;
+}
+
+export const Grid: React.FC<IGrid> = ({ sort }) => {
     const renderedCards = useMemo(
         () =>
             cafeData.map(({ name, description, address, stars, imageSrc, imageAlt }) => (

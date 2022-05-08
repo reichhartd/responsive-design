@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { Dropdown } from '~/components/Dropdown';
 import { Grid } from '~/components/Grid';
 
-enum SortEnum {
+export enum SortEnum {
     NAME = 'NAME',
     ADDRESS = 'ADDRESS',
     STARS = 'STARS',
@@ -20,9 +20,9 @@ export default function Index() {
             <div style={maxWidthStyle}>
                 <div className="flex justify-between px-8 pb-16 xl:px-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
-                    <Dropdown active={activeSort} onClick={setActiveSort} items={items} c />
+                    <Dropdown active={activeSort} onClick={setActiveSort as (active: string) => void} items={items} />
                 </div>
-                <Grid />
+                <Grid sort={activeSort} />
             </div>
         </main>
     );
