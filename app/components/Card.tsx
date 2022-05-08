@@ -14,7 +14,7 @@ export const Card: React.FC<ICard> = ({ name, description, address, stars, image
 
     return (
         <figure className="flex rounded-3xl bg-orange-300 contrast-75 transition duration-150 ease-in hover:contrast-100 focus:contrast-100">
-            <img className="w-96 rounded-l-3xl" src={imageSrc} alt={imageAlt} />
+            <img className="w-96 rounded-l-3xl object-cover" src={imageSrc} alt={imageAlt} />
             <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
                 <blockquote>
                     <p className="text-lg font-medium">{description}</p>
