@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { cafeData } from '~/assets/data/cafeData';
 import { Card } from '~/components/Card';
