@@ -12,7 +12,7 @@ export interface ICard {
 export const Card: React.FC<ICard> = ({ name, description, address, stars, imageSrc, imageAlt }) => {
     const rendererStars = useMemo(() => new Array(stars).fill(null).map(() => '⭐️'), [stars]);
 
-    const flex = 'flex flex-col xl:flex-row items-center';
+    const flex = 'flex flex-col xl:flex-row items-center xl:items-stretch';
     const hover = 'contrast-75 transition duration-150 ease-in hover:contrast-100 focus:contrast-100';
 
     return (
