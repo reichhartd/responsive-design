@@ -20,5 +20,5 @@ export const Grid: React.FC = () => {
         []
     );
 
-    return <div className="grid grid-cols-2 gap-16">{renderedCards}</div>;
+    return <div className="grid grid-cols-1 gap-16 xl:mx-16 xl:grid-cols-2">{renderedCards}</div>;
 };

@@ -12,12 +12,19 @@ export interface ICard {
 export const Card: React.FC<ICard> = ({ name, description, address, stars, imageSrc, imageAlt }) => {
     const rendererStars = useMemo(() => new Array(stars).fill(null).map(() => '⭐️'), [stars]);
 
+    const flex = 'flex flex-col xl:flex-row items-center';
+    const hover = 'contrast-75 transition duration-150 ease-in hover:contrast-100 focus:contrast-100';
+
     return (
-        <figure className="flex rounded-3xl bg-orange-300 contrast-75 transition duration-150 ease-in hover:contrast-100 focus:contrast-100">
-            <img className="w-96 rounded-l-3xl object-cover" src={imageSrc} alt={imageAlt} />
-            <div className="space-y-4 pt-6 text-center md:p-8 md:text-left">
+        <figure className={`${flex} bg-orange-300 p-4 xl:rounded-3xl xl:p-0 ${hover}`}>
+            <img
+                className="aspect-squares w-1/4 rounded-full object-cover xl:w-2/4 xl:rounded-none xl:rounded-l-3xl"
+                src={imageSrc}
+                alt={imageAlt}
+            />
+            <div className="space-y-4 pt-6 md:p-8 md:text-left">
                 <blockquote>
-                    <p className="text-lg font-medium">{description}</p>
+                    <p className="text-lg font-medium">"{description}"</p>
                 </blockquote>
                 <div className="flex justify-between">
                     <figcaption className="font-3medium">
