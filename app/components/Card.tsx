@@ -16,7 +16,7 @@ export const Card: React.FC<ICard> = ({ name, description, address, stars, image
     const hover = 'contrast-75 transition duration-150 ease-in hover:contrast-100 focus:contrast-100';
 
     return (
-        <figure className={`${flex} bg-orange-300 p-4 xl:rounded-3xl xl:p-0 ${hover}`}>
+        <figure className={`${flex} bg-orange-300 p-4 md:rounded-3xl xl:p-0 ${hover}`}>
             <img
                 className="aspect-square w-1/4 rounded-full object-cover xl:w-2/4 xl:rounded-none xl:rounded-l-3xl"
                 src={imageSrc}
@@ -31,7 +31,7 @@ export const Card: React.FC<ICard> = ({ name, description, address, stars, image
                         <div className="text-yellow-800">{name}</div>
                         <div className="text-gray-700">{address}</div>
                     </figcaption>
-                    <div className="ml-2 mt-auto">{rendererStars}</div>
+                    <div className="pl-2">{rendererStars}</div>
                 </div>
             </div>
         </figure>
