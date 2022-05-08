@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 
-interface IDropdown {
+interface IDropdown<TEnum> {
     items: Array<string>;
-    active: string;
-    onClick: (active: string) => void;
+    active: TEnum;
+    onClick: (active: TEnum) => void;
 }
 
-export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
+export const Dropdown = <TEnum extends unknown>({ items, active, onClick }: IDropdown<TEnum>) => {
     const rendererItems = useMemo(
         () =>
             items.map((item) => (

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Dropdown } from '~/components/Dropdown';
 import { Grid } from '~/components/Grid';
@@ -13,8 +13,6 @@ export default function Index() {
     const maxWidthStyle = useMemo(() => ({ maxWidth: '1920px' }), []);
 
     const [activeSort, setActiveSort] = useState<SortEnum>(SortEnum.STARS);
-
-    const onClick = useCallback((active: string) => setActiveSort(active), []);
     const items = useMemo(() => Object.values(SortEnum), []);
 
     return (
@@ -22,7 +20,7 @@ export default function Index() {
             <div style={maxWidthStyle}>
                 <div className="pb-16 pl-8 xl:pl-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
-                    <Dropdown active={activeSort} onClick={onClick} items={items} />
+                    <Dropdown active={activeSort} onClick={setActiveSort} items={items} />
                 </div>
                 <Grid />
             </div>
