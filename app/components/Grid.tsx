@@ -20,6 +20,7 @@ export const Grid: React.FC<IGrid> = ({ sort }) => {
                             return a.address.localeCompare(b.address);
                         case SortEnum.STARS:
                             return b.stars - a.stars;
+                        case SortEnum.DEFAULT:
                         default:
                             return a.index - b.index;
                     }

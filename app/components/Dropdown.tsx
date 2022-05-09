@@ -1,10 +1,12 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment, useCallback, useMemo } from 'react';
 
+import type { SortEnum } from '~/routes';
+
 interface IDropdown {
-    items: Array<string>;
-    active: string;
-    onClick: (active: string) => void;
+    items: Array<SortEnum>;
+    active: SortEnum;
+    onClick: (active: SortEnum) => void;
 }
 
 export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
