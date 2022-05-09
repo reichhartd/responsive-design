@@ -23,7 +23,7 @@ export const Card: React.FC<ICard> = ({ name, description, address, stars, image
                 src={imageSrc}
                 alt={imageAlt}
             />
-            <div className="p-6 md:p-8 md:text-left">
+            <div className="flex flex-col justify-between p-6 md:p-8 md:text-left">
                 <blockquote>
                     <p className="text-lg font-medium">"{description}"</p>
                 </blockquote>

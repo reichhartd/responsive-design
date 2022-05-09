@@ -19,9 +19,9 @@ export default function Index() {
     return (
         <main className="flex min-h-screen justify-center bg-orange-100 py-16">
             <div style={maxWidthStyle}>
-                <div className="flex justify-between px-8 pb-16 xl:px-16">
+                <div className="mx-8 mb-16 flex flex-wrap items-center justify-between xl:mx-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
-                    <div>
+                    <div className="my-4">
                         <Dropdown<SortEnum> active={activeSort} onClick={setActiveSort} items={items} />
                     </div>
                 </div>
