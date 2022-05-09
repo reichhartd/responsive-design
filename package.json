@@ -1,32 +1,52 @@
 {
-  "name": "remix-template-netlify",
-  "private": true,
-  "description": "",
-  "license": "",
-  "sideEffects": false,
-  "scripts": {
-    "build": "remix build",
-    "dev": "cross-env NODE_ENV=development netlify dev",
-    "start": "cross-env NODE_ENV=production netlify dev"
-  },
-  "dependencies": {
-    "@netlify/functions": "^0.10.0",
-    "@remix-run/netlify": "^1.4.3",
-    "@remix-run/node": "^1.4.3",
-    "@remix-run/react": "^1.4.3",
-    "cross-env": "^7.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@remix-run/dev": "^1.4.3",
-    "@remix-run/eslint-config": "^1.4.3",
-    "@types/react": "^17.0.24",
-    "@types/react-dom": "^17.0.9",
-    "eslint": "^8.11.0",
-    "typescript": "^4.5.5"
-  },
-  "engines": {
-    "node": ">=14"
-  }
+    "name": "responsive-design-1d5d",
+    "private": true,
+    "description": "",
+    "license": "",
+    "sideEffects": false,
+    "scripts": {
+        "build": "remix build",
+        "dev": "cross-env NODE_ENV=development netlify dev",
+        "start": "cross-env NODE_ENV=production netlify dev"
+    },
+    "lint-staged": {
+        "*": "prettier --ignore-unknown --write",
+        "*.(js|jsx|ts|tsx)": "eslint --fix"
+    },
+    "eslintIgnore": [
+        "/node_modules",
+        "/build",
+        "/public/build"
+    ],
+    "dependencies": {
+        "@headlessui/react": "^1.6.1",
+        "@netlify/functions": "^0.10.0",
+        "@remix-run/netlify": "^1.4.3",
+        "@remix-run/node": "^1.4.3",
+        "@remix-run/react": "^1.4.3",
+        "cross-env": "^7.0.3",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@prettier/plugin-xml": "^2.1.0",
+        "@remix-run/dev": "^1.4.3",
+        "@remix-run/eslint-config": "^1.4.3",
+        "@types/react": "^17.0.24",
+        "@types/react-dom": "^17.0.9",
+        "eslint": "^8.12.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-react-hooks": "^4.5.0",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^12.4.1",
+        "prettier": "^2.6.2",
+        "prettier-plugin-tailwindcss": "^0.1.8",
+        "pretty-quick": "^3.1.3",
+        "tailwindcss": "^3.0.23",
+        "typescript": "^4.5.5"
+    },
+    "engines": {
+        "node": ">=14"
+    }
 }
