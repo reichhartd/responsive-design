@@ -22,10 +22,10 @@ export default function Index() {
                 <div className="flex justify-between px-8 pb-16 xl:px-16">
                     <h1 className="text-5xl font-bold text-gray-800">Cafés in Berlin</h1>
                     <div>
-                        <Dropdown active={activeSort} onClick={setActiveSort} items={items} />
+                        <Dropdown<SortEnum> active={activeSort} onClick={setActiveSort} items={items} />
                     </div>
                 </div>
-                <Grid sort={activeSort} />
+                <Grid<SortEnum> sort={activeSort} />
             </div>
         </main>
     );

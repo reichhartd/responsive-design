@@ -4,11 +4,11 @@ import { cafeData } from '~/assets/data/cafeData';
 import { Card } from '~/components/Card';
 import { SortEnum } from '~/routes';
 
-interface IGrid {
-    sort: SortEnum;
+interface IGrid<TEnum> {
+    sort: TEnum;
 }
 
-export const Grid: React.FC<IGrid> = ({ sort }) => {
+export const Grid = <TEnum extends string>({ sort }: IGrid<TEnum>) => {
     const renderedCards = useMemo(
         () =>
             cafeData

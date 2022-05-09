@@ -1,15 +1,13 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment, useCallback, useMemo } from 'react';
 
-import type { SortEnum } from '~/routes';
-
-interface IDropdown {
-    items: Array<SortEnum>;
-    active: SortEnum;
-    onClick: (active: SortEnum) => void;
+interface IDropdown<TEnum> {
+    items: Array<TEnum>;
+    active: TEnum;
+    onClick: (active: TEnum) => void;
 }
 
-export const Dropdown: React.FC<IDropdown> = ({ items, active, onClick }) => {
+export const Dropdown = <TEnum extends string>({ items, active, onClick }: IDropdown<TEnum>) => {
     const capitalizeFirstLetter = useCallback((str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(), []);
 
     const rendererActive = useMemo(() => active.toLowerCase(), [active]);
