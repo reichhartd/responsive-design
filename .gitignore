@@ -8,3 +8,5 @@ package-lock.json
 /app/styles/tailwind.css
 
 /.idea
+
+.DS_Store
