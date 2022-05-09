@@ -5,8 +5,11 @@
     "license": "",
     "sideEffects": false,
     "scripts": {
-        "build": "remix build",
-        "dev": "cross-env NODE_ENV=development netlify dev",
+        "build": "npm run build:css && remix build",
+        "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/tailwind.css",
+        "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+        "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+        "dev:legacy": "cross-env NODE_ENV=development netlify dev",
         "start": "cross-env NODE_ENV=production netlify dev"
     },
     "lint-staged": {
@@ -24,6 +27,7 @@
         "@remix-run/netlify": "^1.4.3",
         "@remix-run/node": "^1.4.3",
         "@remix-run/react": "^1.4.3",
+        "@remix-run/serve": "^1.4.3",
         "cross-env": "^7.0.3",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
@@ -34,16 +38,19 @@
         "@remix-run/eslint-config": "^1.4.3",
         "@types/react": "^17.0.24",
         "@types/react-dom": "^17.0.9",
+        "autoprefixer": "^10.4.7",
+        "concurrently": "^7.1.0",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-react-hooks": "^4.5.0",
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "husky": "^7.0.4",
         "lint-staged": "^12.4.1",
+        "postcss": "^8.4.13",
         "prettier": "^2.6.2",
         "prettier-plugin-tailwindcss": "^0.1.8",
         "pretty-quick": "^3.1.3",
-        "tailwindcss": "^3.0.23",
+        "tailwindcss": "^3.0.24",
         "typescript": "^4.5.5"
     },
     "engines": {
