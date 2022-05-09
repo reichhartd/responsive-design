@@ -10,7 +10,9 @@
         "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
         "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
         "dev:legacy": "cross-env NODE_ENV=development netlify dev",
-        "start": "cross-env NODE_ENV=production netlify dev"
+        "start": "cross-env NODE_ENV=production netlify dev",
+        "format": "prettier --write .",
+        "prepare": "husky install"
     },
     "lint-staged": {
         "*": "prettier --ignore-unknown --write",
