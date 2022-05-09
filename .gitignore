@@ -3,6 +3,8 @@ package-lock.json
 
 /build
 /public/build
+/.cache
+/.netlify
 .env
 
 /app/styles/tailwind.css
