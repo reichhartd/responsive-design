@@ -4,6 +4,7 @@ import { Dropdown } from '~/components/Dropdown';
 import { Grid } from '~/components/Grid';
 
 export enum SortEnum {
+    DEFAULT = 'DEFAULT',
     NAME = 'NAME',
     ADDRESS = 'ADDRESS',
     STARS = 'STARS',
@@ -12,7 +13,7 @@ export enum SortEnum {
 export default function Index() {
     const maxWidthStyle = useMemo(() => ({ maxWidth: '1920px' }), []);
 
-    const [activeSort, setActiveSort] = useState<SortEnum>(SortEnum.STARS);
+    const [activeSort, setActiveSort] = useState<SortEnum>(SortEnum.DEFAULT);
     const items = useMemo(() => Object.values(SortEnum), []);
 
     return (

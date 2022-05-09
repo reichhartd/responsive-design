@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 
 export interface ICard {
+    index: number;
     name: string;
     description: string;
     address: string;
